@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "description": "Minimum Viable Router",
   "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
   "repository": "git@github.com:wulfmann/mvr.git",
   "author": "Joe Snell <joepsnell@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
 }
