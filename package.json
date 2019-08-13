@@ -1,0 +1,10 @@
+{
+  "name": "mvr",
+  "version": "1.0.0",
+  "description": "Minimum Viable Router",
+  "main": "index.js",
+  "repository": "git@github.com:wulfmann/mvr.git",
+  "author": "Joe Snell <joepsnell@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
