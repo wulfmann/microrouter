@@ -2,6 +2,10 @@
 
 Zero-Dependency Client-Side Javascript Router
 
+## Description
+
+This is a simple hash-based router that does path matching off of provided regular expressions.
+
 ## Install
 
 `npm install mvcr`
@@ -9,7 +13,7 @@ Zero-Dependency Client-Side Javascript Router
 ## Usage
 
 ```js
-    import { Router } from 'mvcr'
+    import Router from 'mvcr'
 
     const router = new Router({
         routes: {
