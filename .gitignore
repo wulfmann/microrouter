@@ -4,3 +4,4 @@ web_modules
 lib
 dist
 .rts2*
+*.tgz

@@ -1,12 +1,10 @@
-import Router from './mvcr.ts'
+import Router from './mvcr'
 
 const fakePayload = {
     routes: {
         home: {
-            re: /test/,
-            handler: function () {
-                return true
-            }
+            handler (ctx) { return true },
+            re: /test/
         }
     }
 }
@@ -32,12 +30,12 @@ test('routes are set', () => {
     expect(router.routes).toEqual(fakePayload.routes)
 })
 
-test('trimSlashes', () => {
-    const router = new Router({ routes: {} })
-    expect(router.trimSlashes('/test')).toEqual('test')
-    expect(router.trimSlashes('/test/hello')).toEqual('test/hello')
-    expect(router.trimSlashes('///test/whatever/hi//')).toEqual('test/whatever/hi')
-})
+// test('trimSlashes', () => {
+//     const router = new Router({ routes: {} })
+//     expect(router.trimSlashes('/test')).toEqual('test')
+//     expect(router.trimSlashes('/test/hello')).toEqual('test/hello')
+//     expect(router.trimSlashes('///test/whatever/hi//')).toEqual('test/whatever/hi')
+// })
 
 // TODO account for booleans?
 test('qs', () => {
@@ -50,7 +48,7 @@ test('gethandler', () => {
     const router = new Router({ routes: {
         home: {
             re: /test/,
-            handler: function () {
+            handler () {
                 return true
             }
         }

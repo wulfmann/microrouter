@@ -1,3 +1,8 @@
+interface Context {
+    route: Route,
+    router: Router
+}
+
 interface QueryString {
     [key: string]: string
 }
@@ -9,7 +14,7 @@ interface Route {
 
 interface Handler {
     re: RegExp,
-    handler: Function,
+    handler: (ctx: Context) => void,
     name?: string
 }
 
@@ -20,13 +25,13 @@ interface Payload {
 }
 
 class Router {
-    routes: {
+    public routes: {
         [key: string]: Handler
     }
-    containerId: string
-    appRootId: string
-    appRoot: null|HTMLElement
-    current: null|Handler
+    public current: null|Handler
+    public containerId: string
+    public appRootId: string
+    public appRoot: null|HTMLElement
 
     constructor (config: Payload) {
         if (!('routes' in config)) {
@@ -39,9 +44,21 @@ class Router {
         this.current = null
     }
 
-    getRoute(): Route {
-        var path = location.hash.substr(1)
-        var query = {}
+    public go (path: string) {
+        window.location.href = '#' + path
+    }
+
+    public start () {
+        this.render()
+        // Handle Subsequent Navigation
+        window.onhashchange = e => {
+            this.render()
+        }
+    }
+
+    public getRoute(): Route {
+        const path = location.hash.substr(1)
+        let query = {}
 
         // Has Query String
         if (path.match(/\?(.*)=([^&]*)/)) {
@@ -51,13 +68,15 @@ class Router {
         return { path, query }
     }
 
-    getHandler(route: Route): Handler {
+    public getHandler(route: Route): Handler {
         let handler
-        for (var r in this.routes) {
-            var match = route.path.match(this.routes[r].re)
-            if (match) {
-                handler = { name: r, ...this.routes[r] }
-                break
+        for (const r in this.routes) {
+            if (this.routes.hasOwnProperty(r)) {
+                const match = route.path.match(this.routes[r].re)
+                if (match) {
+                    handler = { name: r, ...this.routes[r] }
+                    break
+                }
             }
         }
 
@@ -68,40 +87,22 @@ class Router {
         return handler
     }
 
-    go (path: string) {
-        window.location.href = '#' + path
-    }
-
-    render () {
-        console.time('route')
-        var route = this.getRoute()
-        var handler = this.getHandler(route)
+    public render () {
+        const route = this.getRoute()
+        const handler = this.getHandler(route)
         this.current = handler
         handler.handler({ router: this, route })
-        console.timeEnd('route')
     }
 
-    trimSlashes(str: string) {
-        return str.replace(/^\/+|\/+$/g, '')
-    }
-
-    qs(querystring: string) {
-        if (querystring == '') { return {} }
-        var values = querystring.split(/\?(.+)/)[1].split('&')
-        var q: QueryString = {}
-        for (var i=0; i<values.length;i++) {
-            var val = values[i].split('=')
+    public qs(querystring: string) {
+        if (querystring === "") { return {} }
+        const values = querystring.split(/\?(.+)/)[1].split('&')
+        const q: QueryString = {}
+        for (const i of values) {
+            const val = i.split('=')
             q[val[0]] = decodeURIComponent(val[1])
         }
         return q
-    }
-
-    start () {
-        this.render()
-        // Handle Subsequent Navigation
-        window.onhashchange = e => {
-            this.render()
-        }
     }
 }
 
