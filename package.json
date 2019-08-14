@@ -1,6 +1,6 @@
 {
   "name": "mvcr",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Minimum Viable Client Router",
   "repository": "git@github.com:wulfmann/mvcr.git",
   "author": "Joe Snell <joepsnell@gmail.com>",
@@ -14,7 +14,7 @@
     "test": "jest",
     "bump": "standard-version",
     "build": "microbundle",
-    "release": "git commit -am \"$npm_package_version\" && git tag $npm_package_version && git push && git push --tags && npm publish",
+    "release": "git push --follow-tags origin master && npm publish",
     "publish": "npm run bump && npm run release"
   },
   "devDependencies": {
