@@ -38,5 +38,9 @@
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     }
-  }
+  },
+  "keywords": [
+    "router",
+    "spa"
+  ]
 }
