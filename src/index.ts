@@ -8,7 +8,7 @@ interface Route {
 }
 
 interface Handler {
-    re: string,
+    re: RegExp,
     handler: Function,
     name?: string
 }
@@ -37,7 +37,6 @@ class Router {
         this.appRootId = '__app__'
         this.appRoot = document.getElementById(this.appRootId)
         this.current = null
-        this.render()
     }
 
     getRoute (): Route {
