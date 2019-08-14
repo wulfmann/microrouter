@@ -6,18 +6,23 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <script type="module">
-            import { Router } from 'mvcr'
+        <script src="https://unpkg.com/mvcr"></script>
 
-            const router = new Router({
-                default: {
-                    re: /(.*)/,
-                    handler: function (ctx) {
-                        console.log(ctx)
+        <script>
+            const myHandler = ctx => {
+                console.log(ctx)
+            }
+
+            const everything = /(.*)/
+
+            const router = new mvcr({
+                routes: {
+                    main: {
+                        re: everything,
+                        handler: myHandler
                     }
                 }
             })
-
             router.start()
         </script>
     </head>
