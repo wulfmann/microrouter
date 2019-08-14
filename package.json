@@ -1,6 +1,6 @@
 {
   "name": "mvcr",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Minimum Viable Client Router",
   "repository": "git@github.com:wulfmann/mvcr.git",
   "author": "Joe Snell <joepsnell@gmail.com>",
