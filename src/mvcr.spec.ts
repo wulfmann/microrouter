@@ -3,7 +3,7 @@ import Router from './mvcr'
 const fakePayload = {
     routes: {
         home: {
-            handler (ctx) { return true },
+            handler (ctx: any) { return true },
             re: /test/
         }
     }
