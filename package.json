@@ -13,8 +13,8 @@
   "scripts": {
     "test": "jest",
     "bump": "standard-version",
-    "build": "microbundle",
-    "release": "npm run bump && git push --follow-tags origin master && npm publish"
+    "build": "microbundle --compress --raw",
+    "release": "npm run bump && git push --follow-tags origin master"
   },
   "devDependencies": {
     "@types/jest": "^24.0.17",

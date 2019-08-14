@@ -1,5 +1,7 @@
 # mvcr
 
+Zero-Dependency Client-Side Javascript Router
+
 ## Install
 
 `npm install mvcr`
