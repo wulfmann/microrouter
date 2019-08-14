@@ -10,16 +10,6 @@ const fakePayload = {
 }
 
 // Base properties
-test('appRootId is set', () => {
-    const router = new Router(fakePayload)
-    expect(router.appRootId).toEqual('__app__')
-})
-
-test('containerId is set', () => {
-    const router = new Router(fakePayload)
-    expect(router.containerId).toEqual('app')
-})
-
 test('current is set to null', () => {
     const router = new Router(fakePayload)
     expect(router.current).toEqual(null)

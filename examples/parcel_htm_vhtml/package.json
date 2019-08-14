@@ -1,0 +1,20 @@
+{
+  "name": "mvcr_example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "serve dist",
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "htm": "^2.2.1",
+    "mvcr": "^1.0.10",
+    "parcel-bundler": "^1.12.3",
+    "vhtml": "^2.1.0"
+  },
+  "devDependencies": {
+    "serve": "^11.1.0"
+  }
+}

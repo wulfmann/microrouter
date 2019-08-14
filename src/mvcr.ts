@@ -29,18 +29,12 @@ class Router {
         [key: string]: Handler
     }
     public current: null|Handler
-    public containerId: string
-    public appRootId: string
-    public appRoot: null|HTMLElement
 
     constructor (config: Payload) {
         if (!('routes' in config)) {
             throw new Error('routes is a required config option')
         }
         this.routes = config.routes
-        this.containerId = 'app'
-        this.appRootId = '__app__'
-        this.appRoot = document.getElementById(this.appRootId)
         this.current = null
     }
 
