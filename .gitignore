@@ -5,3 +5,4 @@ lib
 dist
 .rts2*
 *.tgz
+.cache
