@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Router Example</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script type="module">
+            import { Router } from 'mvcr'
+
+            const router = new Router({
+                default: {
+                    re: /(.*)/,
+                    handler: function (ctx) {
+                        console.log(ctx)
+                    }
+                }
+            })
+
+            router.start()
+        </script>
+    </head>
+
+    <body>
+        <div id="__app__"></div>
+    </body>
+</html>

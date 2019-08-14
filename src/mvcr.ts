@@ -39,7 +39,7 @@ class Router {
         this.current = null
     }
 
-    getRoute (): Route {
+    getRoute(): Route {
         var path = location.hash.substr(1)
         var query = {}
 
@@ -77,7 +77,7 @@ class Router {
         var route = this.getRoute()
         var handler = this.getHandler(route)
         this.current = handler
-        handler.handler({ router: this, route: route })
+        handler.handler({ router: this, route })
         console.timeEnd('route')
     }
 
@@ -94,6 +94,14 @@ class Router {
             q[val[0]] = decodeURIComponent(val[1])
         }
         return q
+    }
+
+    start () {
+        this.render()
+        // Handle Subsequent Navigation
+        window.onhashchange = e => {
+            this.render()
+        }
     }
 }
 

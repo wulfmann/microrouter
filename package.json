@@ -1,32 +1,34 @@
 {
-  "name": "mvr",
+  "name": "mvcr",
   "version": "1.0.0",
-  "description": "Minimum Viable Router",
-  "main": "lib/index.min.js",
-  "scripts": {
-    "test": "jest",
-    "compile": "tsc",
-    "clean": "rm -rf ./lib",
-    "minify": "uglifyjs -c -m --output lib/index.min.js -- lib/index.js ",
-    "build": "yarn clean && yarn compile && yarn minify && yarn size",
-    "size": "echo \"Gzipped Size: $(gzip-size lib/index.min.js)\"",
-    "bump": "standard-version",
-    "release": "npm run build -s && npm run bump && git push --follow-tags origin master && npm publish"
-  },
+  "description": "Minimum Viable Client Router",
   "repository": "git@github.com:wulfmann/mvr.git",
   "author": "Joe Snell <joepsnell@gmail.com>",
   "license": "MIT",
-  "private": true,
+  "private": false,
+
+  "source": "src/mvcr.ts",
+  "main": "dist/mvcr.js",
+  "module": "dist/mvcr.mjs",
+  "unpkg": "dist/mvcr.umd.js",
+
+  "scripts": {
+    "test": "jest",
+    "build": "microbundle"
+  },
+
   "devDependencies": {
     "@types/jest": "^24.0.17",
     "@types/node": "^12.7.1",
     "gzip-size-cli": "^3.0.0",
     "jest": "^24.8.0",
+    "microbundle": "^0.11.0",
     "standard-version": "^7.0.0",
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.3",
     "uglify-js": "^3.6.0"
   },
+
   "jest": {
     "moduleFileExtensions": [
       "ts",
@@ -41,6 +43,7 @@
   },
   "keywords": [
     "router",
-    "spa"
+    "spa",
+    "microrouter"
   ]
 }

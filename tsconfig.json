@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "ESNext",
     "strict": true,
     "outDir": "lib"
   },
@@ -9,6 +9,6 @@
       "**/*.spec.ts"
   ],
   "include": [
-      "src/index.ts"
+      "src/mvcr.ts"
   ]
 }

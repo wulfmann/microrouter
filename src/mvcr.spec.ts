@@ -1,4 +1,4 @@
-import Router from './index'
+import Router from './mvcr.ts'
 
 const fakePayload = {
     routes: {

@@ -2,3 +2,5 @@ node_modules
 web_modules
 .DS_Store
 lib
+dist
+.rts2*
