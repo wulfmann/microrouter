@@ -1,4 +1,5 @@
 const Router = require('../index')
+
 // Base properties
 test('appRootId is set', () => {
     const router = new Router({})

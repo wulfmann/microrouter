@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "strict": true,
+    "outDir": "lib"
+  },
+  "exclude": [
+      "node_modules"
+  ],
+  "include": [
+      "index.ts"
+  ]
+}

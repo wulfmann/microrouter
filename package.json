@@ -4,13 +4,22 @@
   "description": "Minimum Viable Router",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "compile": "tsc",
+    "clean": "rm -rf ./lib",
+    "minify": "uglifyjs -c -m --output lib/index.min.js -- lib/index.js ",
+    "build": "yarn clean && yarn compile && yarn minify && yarn size",
+    "size": "echo \"Gzipped Size: $(gzip-size lib/index.min.js)\""
   },
   "repository": "git@github.com:wulfmann/mvr.git",
   "author": "Joe Snell <joepsnell@gmail.com>",
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "jest": "^24.8.0"
+    "@types/node": "^12.7.1",
+    "gzip-size-cli": "^3.0.0",
+    "jest": "^24.8.0",
+    "typescript": "^3.5.3",
+    "uglify-js": "^3.6.0"
   }
 }
